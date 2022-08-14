@@ -1,9 +1,9 @@
-<%- include('../includes/top.ejs') %>
+<%- include('./includes/top.ejs') %>
 
 </head>
 
 <body>
-    <%- include('../includes/navigation.ejs') %>
+    <%- include('./includes/navigation.ejs') %>
     <main class="myContainer">
         <% if (errorMessage) { %>
         <div class="myFlashMessage myFlashMessageError">
@@ -11,7 +11,7 @@
         </div>
         <% } %>
         <div class="myCentered">
-            <form action="/log-in" method="POST">
+            <form action="/api/users/login" method="POST">
                 <div class="myForm">
                     <div class="myFormItem">
                         <label for="email">E-Mail</label>                        

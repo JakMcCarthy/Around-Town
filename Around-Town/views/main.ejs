@@ -3,7 +3,7 @@
 </head>
 
 <body>
-  <%- include('./includes/navigation.ejs') %>
+    <%- include('./includes/navigation.ejs') %>
   
   <main class="myContainer">
     <title>Around Town</title>
@@ -27,21 +27,21 @@
   <body>
       <div class="container">
           <h1 class="mb-4">New Event</h1>
-              <form action="/events" method="post" onSubmit={onSubmit}>
-                  <input className="eventFiled" value= "Event Name" type="text" > 
-                  <input className="eventTime" value= "Time" type="time"  > 
-                  <input className="eventDate" value="Date" type="date" >
-                  <input className="eventLocat" value="Location" type="location" >
+              <form action="/api/post" method="post" onSubmit={onSubmit}>
+                  <input className="eventFiled" placeholder= "Event Name" type="text" > 
+                  <input className="eventTime" placeholder= "Time" type="time"  > 
+                  <input className="eventDate" placeholder="Date" type="date" >
+                  <input className="eventLocat" placeholder="Location" type="location" >
                   <br></br>
-                  <input className="eventDescr" value="Description" type="text box" >
-                  <input className="eventImg" value="Add Images" type="image" >
+                  <textarea className="eventDescr" placeholder="Description" type="text" ></textarea>
+                  <input className="eventImg" placeholder="Add Images" type="image" >
                   <br></br>
                   <button className="submitBtn">Submit</button>
               </form>
         
   
       </div>
-      <div id="my Sidebar" class="sidebar">
+      <!-- <div id="my Sidebar" class="sidebar">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;
           </a>
           <a href="#">Saved events</a>
@@ -52,7 +52,7 @@
       <div id="main">
           <button class="openbtn" onclick="openNav()">&#9776;</button>
       </div>
-   
+    -->
   </main>
-
+</body>
   <%- include('./includes/bottom.ejs') %>

@@ -1,0 +1,27 @@
+<%- include('../includes/top.ejs') %>
+
+</head>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+
+  <main class="myContainer">
+
+    <p>initially posted at:
+      <%= post.date %>
+    </p>
+    <form action="/edit-post" method="POST">
+
+      <label for="content">Content</label>
+      <textarea name="content" id="content" rows="2"
+        cols="50"><% if (editing) { %><%= post.content %><% } %></textarea>
+
+      <% if (editing) { %>
+      <input type="hidden" value="<%= post._id %>" name="postId">
+      <% } %>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <button class="myButton" type="submit">Submit</button>
+    </form>
+  </main>
+
+  <%- include('../includes/bottom.ejs') %>

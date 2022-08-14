@@ -20,26 +20,15 @@ const sess = {
   })
 };
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
-app.use('/events', eventsRouter)
-
-app.get('/', (req,res) => {
-    const events =[{
-        title: 'test event',
-        eventDate: new Date ('<03-23-2023>'),
-        eventTime:  'test 3:45',
-        location: 'test location',
-        description: 'test description'
-    }]
-    res.render('main.ejs', {events: events})
-})
+app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

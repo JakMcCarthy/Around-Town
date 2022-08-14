@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
+const { Post, User, Comments, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     ],
     include: [
       {
-        model: Comment,
+        model: Comments,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
     ],
     include: [
       {
-        model: Comment,
+        model: Comments,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
@@ -92,7 +92,7 @@ router.post('/', withAuth, (req, res) => {
 
 router.put('/upvote', withAuth, (req, res) => {
   // custom static method created in models/Post.js
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comments, User })
     .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
       console.log(err);
