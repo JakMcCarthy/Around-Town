@@ -16,6 +16,20 @@
     --red: rgb(240, 78, 34);
     --green: rgb(132, 189, 151);
 }
+
+.parallax {
+  /* The image used */
+  background-image: url("./images/lower-manhattan-skyline.jpg");
+
+  /* Set a specific height */
+  min-height: 250px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
   
 main {
     padding-top: 15px;

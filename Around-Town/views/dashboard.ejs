@@ -1,20 +1,20 @@
-<%- include('./includes/top.ejs') %>
+<%- include('./includes/top') %>
 
-</head>
-
-<body>
+  <body>
     <%- include('./includes/navigation.ejs') %>
-  
-  <main class="myContainer">
-    <title>Around Town</title>
 
+      <main class="myContainer">
+        <h1><%- username %>'s Profile</h1>
+        <div>
+          <% if (loggedIn) { %>
+            <a href="./add-post">Post an Event!</a>
+            <% } %>
+        </div>
+        <div class="parallax"></div>
+          <%- include('./post/posts') %>
 
+      </main>
+      <%- include('./sidebar') %>
 
-
-
-</body>
-</main>
-<%- include('../includes/pagination.ejs', paginationObject) %>
-
-
-<%- include('./includes/bottom.ejs') %>
+  </body>
+  <%- include('./includes/bottom') %>

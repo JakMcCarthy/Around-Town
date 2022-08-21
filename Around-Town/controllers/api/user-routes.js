@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/sign-up', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     username: req.body.username,
@@ -66,8 +66,8 @@ router.post('/', (req, res) => {
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
   
-        res.json(dbUserData);
       });
+      res.redirect("/dashboard")
     })
     .catch(err => {
       console.log(err);
@@ -97,22 +97,11 @@ router.post('/login', (req, res) => {
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-  
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      req.session.loggedIn = true; 
+      res.redirect('/dashboard'); 
     });
-  });
-});
 
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  }
-  else {
-    res.status(404).end();
-  }
+  });
 });
 
 router.put('/:id', (req, res) => {

@@ -42,6 +42,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/add-post', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/');
+  }
+
+  res.render('post/add-post', {loggedIn: req.session.loggedIn});
+});
+
+
+
 // get single post
 router.get('/post/:id', (req, res) => {
   Post.findOne({
@@ -95,6 +105,25 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/sign-up', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+  }
+
+  res.render('sign-up');
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.redirect("/");
+    });
+  }
+  else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;

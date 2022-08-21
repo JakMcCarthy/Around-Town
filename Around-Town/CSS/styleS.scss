@@ -10,3 +10,17 @@ h1 {
     background-color: black;
 }
 
+
+.parallax {
+    /* The image used */
+    background-image: url("./images/lower-manhattan-skyline.jpg");
+  
+    /* Set a specific height */
+    min-height: 250px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const eventsRouter = require('./routes/events.js')
 const ejs =  require('ejs');
 
 const app = express();
@@ -25,10 +24,10 @@ app.set('view engine', 'ejs');
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'CSS')));
 
 app.use(require('./controllers/'));
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

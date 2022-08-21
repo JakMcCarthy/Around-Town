@@ -1,14 +1,17 @@
-<%- include('./includes/top.ejs') %>
+<%- include('../includes/top.ejs') %>
 
-<main>
+</head>
 
+<body>
+  <%- include('../includes/navigation.ejs') %>
+  <main class="myContainer">
+    <p>Add a Post</p>
+    <form action="/add-post" method="POST">
+      <label for="content">Content</label>
+      <input type="text" name="content" id="content" />
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" /> 
+      <button class="myButton" type="submit">Submit</button>
+    </form>
+  </main>
 
-
-
-
-
-<%- include('../includes/pagination.ejs', paginationObject) %>
-
-</main>
-
-<%- include('../includes/bottom.ejs') %>
+  <%- include('../includes/bottom.ejs') %>

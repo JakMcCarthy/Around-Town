@@ -5,8 +5,6 @@ const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
-  console.log('======================');
   Post.findAll({
     where: {
       user_id: req.session.user_id
@@ -35,7 +33,9 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++")
+      console.log(posts)
+      res.render('dashboard', { posts: posts, username: req.session.username, loggedIn: req.session.loggedIn });
     })
     .catch(err => {
       console.log(err);

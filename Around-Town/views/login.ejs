@@ -3,33 +3,28 @@
 </head>
 
 <body>
-    <%- include('./includes/navigation.ejs') %>
+
     <main class="myContainer">
-        <% if (errorMessage) { %>
-        <div class="myFlashMessage myFlashMessageError">
-            <%= errorMessage %>
-        </div>
-        <% } %>
+      
         <div class="myCentered">
             <form action="/api/users/login" method="POST">
                 <div class="myForm">
                     <div class="myFormItem">
                         <label for="email">E-Mail</label>                        
                         <input 
-                        class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"
-                        type="email" name="email" id="email" value="<%= oldInput.email %>"
+                        class="email"
+                        type="email" name="email" id="email" placeholder="email"
                         />
                     </div>
                     <div class="myFormItem">
                         <label for="password">Password</label>
                         <input 
-                        class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>"
-                        type="password" name="password" id="password" value="<%= oldInput.password %>"
+                        class="password"
+                        type="password" name="password" id="password" placeholder="password"
                         />
                     </div>
                 </div>
                 <div class="myCentered">
-                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                     <button class="myButton" type="submit">Log In</button>
                 </div>
             </form>            
@@ -39,4 +34,4 @@
         </div>
     </main>
 
-    <%- include('../includes/bottom.ejs') %>
+    <%- include('./includes/bottom.ejs') %>
