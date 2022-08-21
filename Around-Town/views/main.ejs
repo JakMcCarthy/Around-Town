@@ -14,7 +14,7 @@
         <div class="container"> 
           <%= include('../views/post/display-posts.ejs') %>
           <h1 class="mb-4">New Event</h1>
-          <form action="./controller/api/post-routes" method="post" onSubmit={onSubmit}>
+          <form action="./controllers/api/post-routes" method="post" onSubmit={onSubmit}>
             <input className="eventFiled" placeholder="Event Name" type="text">
             <input className="eventTime" placeholder="Time" type="time">
             <input className="eventDate" placeholder="Date" type="date">
