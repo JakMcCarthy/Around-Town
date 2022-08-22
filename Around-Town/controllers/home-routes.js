@@ -50,6 +50,22 @@ router.get('/add-post', (req, res) => {
   res.render('post/add-post', {loggedIn: req.session.loggedIn});
 });
 
+router.post('/post/add-post', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/');
+  }
+
+  res.render('post/display-posts', {loggedIn: req.session.loggedIn});
+});
+
+router.get('/post/display-posts', (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/');
+  }
+
+  res.render('post/display-posts', {loggedIn: req.session.loggedIn});
+});
+
 
 
 // get single post
