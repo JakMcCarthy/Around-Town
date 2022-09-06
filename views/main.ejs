@@ -12,16 +12,16 @@
         </div>
         <div class="parallax"></div>
         <div class="container"> 
-          <%= include('../views/post/display-posts.ejs') %>
+          <%- include('../views/post/display-posts.ejs') %>
           <h1 class="mb-4">New Event</h1>
-          <form action="./controllers/api/post-routes" method="post" onSubmit={onSubmit}>
+          <form action="/api/posts" method="POST" onSubmit={onSubmit}>
             <input className="eventFiled" placeholder="Event Name" type="text">
             <input className="eventTime" placeholder="Time" type="time">
             <input className="eventDate" placeholder="Date" type="date">
             <input className="eventLocat" placeholder="Location" type="location">
             <br></br>
             <textarea className="eventDescr" placeholder="Description" type="text"></textarea>
-            <input className="eventImg" placeholder="Add Images" type="image">
+            <!-- <input className="eventImg" placeholder="Add Images" type="image"> -->
             <br></br>
             <button className="submitBtn">Submit</button>
           </form>

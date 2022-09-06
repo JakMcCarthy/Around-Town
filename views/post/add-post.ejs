@@ -3,14 +3,14 @@
   <main class="myContainer">
     <p>Add a Post</p>
 
-    <form action="/post/add-post" method="POST" onSubmit={onSubmit}>
-      <input className="eventFiled" placeholder="Event Name" type="text">
-      <input className="eventTime" placeholder="Time" type="time">
-      <input className="eventDate" placeholder="Date" type="date">
-      <input className="eventLocat" placeholder="Location" type="location">
+    <form action="/api/posts" method="POST" onSubmit={onSubmit}>
+      <input className="eventFiled" name = "title" placeholder="Event Name" type="text">
+      <input className="eventTime" name = "time" placeholder="Time" type="time">
+      <input className="eventDate" name="date" placeholder="Date" type="date">
+      <input className="eventLocat" name="location" placeholder="Location" type="text">
       <br></br>
-      <textarea className="eventDescr" placeholder="Description" type="text"></textarea>
-      <input className="eventImg" placeholder="Add Images" type="image">
+      <textarea className="eventDescr" name="description" placeholder="Description" type="text"></textarea>
+      <!-- <input className="eventImg" name="post_url" placeholder="Add Images" type="text"> -->
       <br></br>
       <button className="submitBtn">Submit</button>
     </form>

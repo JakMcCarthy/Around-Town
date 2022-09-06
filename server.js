@@ -28,6 +28,6 @@ app.use(express.static(path.join(__dirname, 'CSS')));
 
 app.use(require('./controllers/'));
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

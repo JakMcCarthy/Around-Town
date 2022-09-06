@@ -51,10 +51,6 @@ Post.init(
     },
     post_url: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isURL: true
-      }
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -62,6 +58,22 @@ Post.init(
         model: 'user',
         key: 'id'
       }
+    },
+    time: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {
